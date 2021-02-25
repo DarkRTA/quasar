@@ -271,8 +271,13 @@ const String makePluginFile (AudioProcessor* const filter, const int maxNumInput
     // UIs
     if (filter->hasEditor())
     {
-        text += "    ui:ui <" + pluginURI + "#ExternalUI> ,\n";
-        text += "          <" + pluginURI + "#ParentUI> ;\n";
+        // FIXME: Vital segfaults when the external UI is closed, so
+        // we're disabling it for now. The parent UI seems to be the
+        // default in at least Ardour and Carla anyway.
+
+        //text += "    ui:ui <" + pluginURI + "#ExternalUI> ,\n";
+        //text += "          <" + pluginURI + "#ParentUI> ;\n";
+        text += "    ui:ui <" + pluginURI + "#ParentUI> ;\n";
         text += "\n";
     }
 
@@ -742,8 +747,9 @@ public:
         addAndMakeVisible (editor);
     }
 
-    ~JuceLv2ParentContainer()
+    ~JuceLv2ParentContainer() override
     {
+        deleteAllChildren();
     }
 
     void paint (Graphics&) {}
@@ -873,15 +879,15 @@ public:
 
         filter->removeListener(this);
 
-        parentContainer = nullptr;
-        externalUI = nullptr;
-        externalUIHost = nullptr;
-
         if (editor != nullptr)
         {
             filter->editorBeingDeleted (editor);
             editor = nullptr;
         }
+
+        parentContainer = nullptr;
+        externalUI = nullptr;
+        externalUIHost = nullptr;
     }
 
     //==============================================================================
@@ -1850,11 +1856,20 @@ public:
     {
         const MessageManagerLock mmLock;
 
-        if (ui != nullptr)
-            ui->resetIfNeeded (writeFunction, controller, widget, features);
-        else
-            ui = new JuceLv2UIWrapper (filter, writeFunction, controller, widget, features, isExternal);
+        // FIXME: We get graphical glitches and crashes when Vital's UI is
+        // opened, closed, and then opened again. As a workaround, we create
+        // a new UI every time. This (probably?) isn't ideal (but it seems like
+        // it might be similar to what the VST wrapper does?). Maybe someone
+        // more familiar with JUCE knows if there's a better way to avoid this
+        // issue.
 
+        //if (ui != nullptr)
+        //    ui->resetIfNeeded (writeFunction, controller, widget, features);
+        //else
+        //    ui = new JuceLv2UIWrapper (filter, writeFunction, controller, widget, features, isExternal);
+
+        ui = nullptr;
+        ui = new JuceLv2UIWrapper (filter, writeFunction, controller, widget, features, isExternal);
         return ui;
     }
 
