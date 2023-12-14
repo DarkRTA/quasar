@@ -78,10 +78,10 @@ namespace BinaryData
     const int            shuffle_svgSize = 382;
 
     extern const char*   vital_ring_svg;
-    const int            vital_ring_svgSize = 2658;
+    const int            vital_ring_svgSize = 1051;
 
     extern const char*   vital_v_svg;
-    const int            vital_v_svgSize = 2658;
+    const int            vital_v_svgSize = 540;
 
     extern const char*   vital_word_svg;
     const int            vital_word_svgSize = 3979;

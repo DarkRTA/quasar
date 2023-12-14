@@ -2,12 +2,14 @@
 .DS_Store?
 VTune\ Profiler\ Results
 cmake-build*
+compile_commands.json
 *.swp
 *.Trashes
 xcuserdata
 xcshareddata
 *.xcworkspace
 build
+.cache
 .clang_complete
 .vs
 .ycm_extra_conf.py*

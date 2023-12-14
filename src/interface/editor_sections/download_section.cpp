@@ -386,8 +386,8 @@ void DownloadSection::chooseInstallFolder() {
   FileChooser open_box("Choose Install Directory", install_location_);
   if (open_box.browseForDirectory()) {
     File result = open_box.getResult();
-    if (result.getFileName() != "Vial")
-      result = result.getChildFile("Vial");
+    if (result.getFileName() != "Vanadium")
+      result = result.getChildFile("Vanadium");
 
     result.createDirectory();
     File errors_file = result.getChildFile("errors.txt");

@@ -9094,36 +9094,54 @@ const char* shuffle_svg = (const char*) temp_binary_data_22;
 //================== vital_ring.svg ==================
 static const unsigned char temp_binary_data_23[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
-"<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n"
-"<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" preserveAspectRatio=\"xMidYMid meet\" viewBox=\"0 0 1701 1701\" width=\"1701\" height=\"1701\"><defs><path d=\"M155.32 448.98C155.31 449 820.1 1487"
-".79 850.36 1653.31C850.39 1653.31 850.61 1653.31 850.64 1653.31C855.63 1625.99 1438.76 540.21 1545.82 449.22C1545.81 449.2 1545.76 449.12 1545.68 448.98C688.51 449.26 225.06 449.26 155.32 448.98Z\" id=\"k39Dh1wFs7\"></path></defs><g><g><g><g><filter "
-"id=\"shadow13560384\" x=\"146.32\" y=\"439.98\" width=\"1409.5\" height=\"1223.33\" filterUnits=\"userSpaceOnUse\" primitiveUnits=\"userSpaceOnUse\"><feFlood></feFlood><feComposite in2=\"SourceAlpha\" operator=\"in\"></feComposite><feGaussianBlur std"
-"Deviation=\"1\"></feGaussianBlur><feOffset dx=\"1\" dy=\"1\" result=\"afterOffset\"></feOffset><feFlood flood-color=\"#000000\" flood-opacity=\"0.5\"></feFlood><feComposite in2=\"afterOffset\" operator=\"in\"></feComposite><feMorphology operator=\"di"
-"late\" radius=\"1\"></feMorphology><feComposite in2=\"SourceAlpha\" operator=\"out\"></feComposite></filter><path d=\"M155.32 448.98C155.31 449 820.1 1487.79 850.36 1653.31C850.39 1653.31 850.61 1653.31 850.64 1653.31C855.63 1625.99 1438.76 540.21 15"
-"45.82 449.22C1545.81 449.2 1545.76 449.12 1545.68 448.98C688.51 449.26 225.06 449.26 155.32 448.98Z\" id=\"b2btxBmqDq\" fill=\"white\" fill-opacity=\"1\" filter=\"url(#shadow13560384)\"></path></g><use xlink:href=\"#k39Dh1wFs7\" opacity=\"1\" fill=\""
-"#000000\" fill-opacity=\"1\"></use><g><use xlink:href=\"#k39Dh1wFs7\" opacity=\"1\" fill-opacity=\"0\" stroke=\"#000000\" stroke-width=\"1\" stroke-opacity=\"0\"></use></g><g><filter id=\"shadow3195237\" x=\"146.32\" y=\"439.98\" width=\"1409.5\" hei"
-"ght=\"1223.33\" filterUnits=\"userSpaceOnUse\" primitiveUnits=\"userSpaceOnUse\"><feFlood></feFlood><feComposite in2=\"SourceAlpha\" operator=\"out\"></feComposite><feGaussianBlur stdDeviation=\"1\"></feGaussianBlur><feOffset dx=\"1\" dy=\"1\" result"
-"=\"afterOffset\"></feOffset><feFlood flood-color=\"#000000\" flood-opacity=\"0.5\"></feFlood><feComposite in2=\"afterOffset\" operator=\"in\"></feComposite><feMorphology operator=\"dilate\" radius=\"1\"></feMorphology><feComposite in2=\"SourceAlpha\""
-" operator=\"in\"></feComposite></filter><path d=\"M155.32 448.98C155.31 449 820.1 1487.79 850.36 1653.31C850.39 1653.31 850.61 1653.31 850.64 1653.31C855.63 1625.99 1438.76 540.21 1545.82 449.22C1545.81 449.2 1545.76 449.12 1545.68 448.98C688.51 449."
-"26 225.06 449.26 155.32 448.98Z\" id=\"d6oHbGRIwo\" fill=\"white\" fill-opacity=\"1\" filter=\"url(#shadow3195237)\"></path></g></g></g></g></svg>";
+"<!-- Created with Inkscape (http://www.inkscape.org/) -->\n"
+"\n"
+"<svg\n"
+"   version=\"1.1\"\n"
+"   id=\"svg2\"\n"
+"   width=\"467\"\n"
+"   height=\"454\"\n"
+"   viewBox=\"0 0 467 454\"\n"
+"   xml:space=\"preserve\"\n"
+"   xmlns=\"http://www.w3.org/2000/svg\"\n"
+"   xmlns:svg=\"http://www.w3.org/2000/svg\"><defs\n"
+"     id=\"defs6\" /><path\n"
+"     style=\"fill:#000000\"\n"
+"     d=\"M 1.2108367,62.047902 62.997971,61.989002 99.163658,183.99976 54.997332,241.15662 Z\"\n"
+"     id=\"path434\" /><path\n"
+"     style=\"fill:#000000\"\n"
+"     d=\"m 65.50489,276.3531 43.97832,-56.70387 10.72703,35.03033 -44.10171,56.89806 z\"\n"
+"     id=\"path432\" /><path\n"
+"     style=\"fill:#000000\"\n"
+"     d=\"m 86.677062,347.04891 43.908578,-57.06729 10.74608,35.0751 -43.979338,56.9909 z\"\n"
+"     id=\"path428\" /><path\n"
+"     style=\"fill:#000000\"\n"
+"     d=\"m 107.89578,417.68335 43.60593,-57.30193 11.29501,34.69185 -44.33816,57.37036 z\"\n"
+"     id=\"path424\" /><path\n"
+"     style=\"fill:#000000\"\n"
+"     d=\"M 186.66288,70.532749 238.81788,1.5067382 336.57257,1.4121669 213.93016,161.08548 Z\"\n"
+"     id=\"path436\" /></svg>\n";
 
 const char* vital_ring_svg = (const char*) temp_binary_data_23;
 
 //================== vital_v.svg ==================
 static const unsigned char temp_binary_data_24[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
-"<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n"
-"<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" preserveAspectRatio=\"xMidYMid meet\" viewBox=\"0 0 1701 1701\" width=\"1701\" height=\"1701\"><defs><path d=\"M155.32 448.98C155.31 449 820.1 1487"
-".79 850.36 1653.31C850.39 1653.31 850.61 1653.31 850.64 1653.31C855.63 1625.99 1438.76 540.21 1545.82 449.22C1545.81 449.2 1545.76 449.12 1545.68 448.98C688.51 449.26 225.06 449.26 155.32 448.98Z\" id=\"k39Dh1wFs7\"></path></defs><g><g><g><g><filter "
-"id=\"shadow13560384\" x=\"146.32\" y=\"439.98\" width=\"1409.5\" height=\"1223.33\" filterUnits=\"userSpaceOnUse\" primitiveUnits=\"userSpaceOnUse\"><feFlood></feFlood><feComposite in2=\"SourceAlpha\" operator=\"in\"></feComposite><feGaussianBlur std"
-"Deviation=\"1\"></feGaussianBlur><feOffset dx=\"1\" dy=\"1\" result=\"afterOffset\"></feOffset><feFlood flood-color=\"#000000\" flood-opacity=\"0.5\"></feFlood><feComposite in2=\"afterOffset\" operator=\"in\"></feComposite><feMorphology operator=\"di"
-"late\" radius=\"1\"></feMorphology><feComposite in2=\"SourceAlpha\" operator=\"out\"></feComposite></filter><path d=\"M155.32 448.98C155.31 449 820.1 1487.79 850.36 1653.31C850.39 1653.31 850.61 1653.31 850.64 1653.31C855.63 1625.99 1438.76 540.21 15"
-"45.82 449.22C1545.81 449.2 1545.76 449.12 1545.68 448.98C688.51 449.26 225.06 449.26 155.32 448.98Z\" id=\"b2btxBmqDq\" fill=\"white\" fill-opacity=\"1\" filter=\"url(#shadow13560384)\"></path></g><use xlink:href=\"#k39Dh1wFs7\" opacity=\"1\" fill=\""
-"#000000\" fill-opacity=\"1\"></use><g><use xlink:href=\"#k39Dh1wFs7\" opacity=\"1\" fill-opacity=\"0\" stroke=\"#000000\" stroke-width=\"1\" stroke-opacity=\"0\"></use></g><g><filter id=\"shadow3195237\" x=\"146.32\" y=\"439.98\" width=\"1409.5\" hei"
-"ght=\"1223.33\" filterUnits=\"userSpaceOnUse\" primitiveUnits=\"userSpaceOnUse\"><feFlood></feFlood><feComposite in2=\"SourceAlpha\" operator=\"out\"></feComposite><feGaussianBlur stdDeviation=\"1\"></feGaussianBlur><feOffset dx=\"1\" dy=\"1\" result"
-"=\"afterOffset\"></feOffset><feFlood flood-color=\"#000000\" flood-opacity=\"0.5\"></feFlood><feComposite in2=\"afterOffset\" operator=\"in\"></feComposite><feMorphology operator=\"dilate\" radius=\"1\"></feMorphology><feComposite in2=\"SourceAlpha\""
-" operator=\"in\"></feComposite></filter><path d=\"M155.32 448.98C155.31 449 820.1 1487.79 850.36 1653.31C850.39 1653.31 850.61 1653.31 850.64 1653.31C855.63 1625.99 1438.76 540.21 1545.82 449.22C1545.81 449.2 1545.76 449.12 1545.68 448.98C688.51 449."
-"26 225.06 449.26 155.32 448.98Z\" id=\"d6oHbGRIwo\" fill=\"white\" fill-opacity=\"1\" filter=\"url(#shadow3195237)\"></path></g></g></g></g></svg>";
+"<!-- Created with Inkscape (http://www.inkscape.org/) -->\n"
+"\n"
+"<svg\n"
+"   version=\"1.1\"\n"
+"   id=\"svg2\"\n"
+"   width=\"467\"\n"
+"   height=\"454\"\n"
+"   viewBox=\"0 0 467 454\"\n"
+"   xml:space=\"preserve\"\n"
+"   xmlns=\"http://www.w3.org/2000/svg\"\n"
+"   xmlns:svg=\"http://www.w3.org/2000/svg\"><defs\n"
+"     id=\"defs6\" /><path\n"
+"     style=\"display:inline;fill:#000000\"\n"
+"     d=\"M 92.702971,61.829015 154.12166,61.790333 201.05898,218.82881 367.95894,1.9755249 465.03525,2.3951663 184.22551,367.28588 Z\"\n"
+"     id=\"path430\" /></svg>\n";
 
 const char* vital_v_svg = (const char*) temp_binary_data_24;
 
@@ -9289,8 +9307,8 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
         case 0xee7a107c:  numBytes = 1588; return phaser_svg;
         case 0xd06e9e77:  numBytes = 14394; return reverb_svg;
         case 0x1954101e:  numBytes = 382; return shuffle_svg;
-        case 0xa1c1eea8:  numBytes = 2658; return vital_ring_svg;
-        case 0x58c73d28:  numBytes = 2658; return vital_v_svg;
+        case 0xa1c1eea8:  numBytes = 1051; return vital_ring_svg;
+        case 0x58c73d28:  numBytes = 540; return vital_v_svg;
         case 0xed364e82:  numBytes = 3979; return vital_word_svg;
         case 0xd6989277:  numBytes = 1888; return vital_word_ring_svg;
         default: break;
