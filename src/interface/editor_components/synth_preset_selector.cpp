@@ -206,8 +206,6 @@ void SynthPresetSelector::showPopupMenu(Component* anchor) {
   if (!hasDefaultTuning())
     options.addItem(kClearTuning, "Clear Tuning: " + getTuningName());
   
-  options.addItem(-1, "");
-
   if (LoadSave::getDefaultSkin().exists()) {
     options.addItem(-1, "");
     options.addItem(kClearSkin, "Load Default Skin");
