@@ -48,7 +48,7 @@ SynthEditor::SynthEditor(SynthPlugin& synth) :
   window_size = std::min(window_size, total_bounds.getHeight() / (1.0f * vital::kDefaultWindowHeight));
   int width = std::round(window_size * vital::kDefaultWindowWidth);
   int height = std::round(window_size * vital::kDefaultWindowHeight);
-  setResizable(true, true);
+  setResizable(false, false);
   setSize(width, height);
 }
 
