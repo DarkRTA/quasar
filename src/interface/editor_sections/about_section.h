@@ -52,7 +52,7 @@ class OpenGlDeviceSelector : public OpenGlAutoImageComponent<AudioDeviceSelector
 
 class AboutSection : public Overlay {
   public:
-    static constexpr int kInfoWidth = 500;
+    static constexpr int kInfoWidth = 430;
     static constexpr int kBasicInfoHeight = 250;
     static constexpr int kPaddingX = 25;
     static constexpr int kPaddingY = 15;

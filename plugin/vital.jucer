@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="C9WuMW" name="Vanadium" projectType="audioplug" version="1.0.6"
-              bundleIdentifier="io.thev0id.vanadium" includeBinaryInAppConfig="1"
+<JUCERPROJECT id="C9WuMW" name="Quasar" projectType="audioplug" version="1.0.6"
+              bundleIdentifier="io.thev0id.quasar" includeBinaryInAppConfig="1"
               buildVST="0" buildVST3="1" buildAU="0" buildRTAS="0" buildAAX="0"
-              pluginName="Vanadium" pluginDesc="" pluginManufacturer="the v0id"
+              pluginName="Quasar" pluginDesc="" pluginManufacturer="the v0id"
               pluginManufacturerCode="Open" pluginCode="VANA" pluginChannelConfigs="{0, 2}"
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
               pluginSilenceInIsSilenceOut="0" pluginEditorRequiresKeys="1"
-              pluginAUExportPrefix="vanadium" pluginRTASCategory="" aaxIdentifier="io.thev0id.vanadium"
+              pluginAUExportPrefix="quasar" pluginRTASCategory="" aaxIdentifier="io.thev0id.quasar"
               pluginAAXCategory="2048" companyName="the v0id" companyEmail="dark@thev0id.io"
               companyWebsite="thev0id.io" pluginIsMidiEffectPlugin="0" buildAUv3="0"
               displaySplashScreen="0" reportAppUsage="0" splashScreenColour="Dark"
               buildStandalone="1" enableIAA="1" cppLanguageStandard="14" companyCopyright="Dark"
               pluginFormats="buildStandalone,buildVST3,enableIAA" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn,pluginEditorRequiresKeys"
               jucerFormatVersion="1" projectLineFeed="&#10;">
-  <MAINGROUP id="OwcEM5" name="Vanadium">
+  <MAINGROUP id="OwcEM5" name="Quasar">
     <GROUP id="{AF7411EF-B0D3-B422-B9E8-D2F76B1C5398}" name="tunings">
       <FILE id="B1gbRx" name="5 Limit.scl" compile="0" resource="1" file="../tunings/5 Limit.scl"/>
       <FILE id="MdpA9z" name="7 Limit.scl" compile="0" resource="1" file="../tunings/7 Limit.scl"/>
@@ -817,10 +817,10 @@
                 vstLegacyFolder="../third_party/VST_SDK/VST2_SDK">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib/&#10;../../../third_party/firebase_cpp_sdk/libs/linux/x86_64/"
-                       isDebug="1" optimisation="1" targetName="Vanadium-Debug" headerPath="../../../src/common&#10;../../../src/common/wavetable&#10;../../../src/interface/editor_components&#10;../../../src/interface/editor_sections&#10;../../../src/interface/look_and_feel&#10;../../../src/interface/wavetable&#10;../../../src/interface/wavetable/editors&#10;../../../src/interface/wavetable/overlays&#10;../../../src/plugin&#10;../../../src/synthesis/synth_engine&#10;../../../src/synthesis/effects&#10;../../../src/synthesis/filters&#10;../../../src/synthesis/framework&#10;../../../src/synthesis/lookups&#10;../../../src/synthesis/modulators&#10;../../../src/synthesis/modules&#10;../../../src/synthesis/producers&#10;../../../src/synthesis/utilities&#10;../../../third_party&#10;../../../third_party/firebase_cpp_sdk/include"
+                       isDebug="1" optimisation="1" targetName="Quasar-Debug" headerPath="../../../src/common&#10;../../../src/common/wavetable&#10;../../../src/interface/editor_components&#10;../../../src/interface/editor_sections&#10;../../../src/interface/look_and_feel&#10;../../../src/interface/wavetable&#10;../../../src/interface/wavetable/editors&#10;../../../src/interface/wavetable/overlays&#10;../../../src/plugin&#10;../../../src/synthesis/synth_engine&#10;../../../src/synthesis/effects&#10;../../../src/synthesis/filters&#10;../../../src/synthesis/framework&#10;../../../src/synthesis/lookups&#10;../../../src/synthesis/modulators&#10;../../../src/synthesis/modules&#10;../../../src/synthesis/producers&#10;../../../src/synthesis/utilities&#10;../../../third_party&#10;../../../third_party/firebase_cpp_sdk/include"
                        linuxArchitecture="" defines=""/>
         <CONFIGURATION name="Release" libraryPath="/usr/X11R6/lib/&#10;../../../third_party/firebase_cpp_sdk/libs/linux/x86_64/"
-                       isDebug="0" optimisation="3" targetName="Vanadium" headerPath="../../../src/common&#10;../../../src/common/wavetable&#10;../../../src/interface/editor_components&#10;../../../src/interface/editor_sections&#10;../../../src/interface/look_and_feel&#10;../../../src/interface/wavetable&#10;../../../src/interface/wavetable/editors&#10;../../../src/interface/wavetable/overlays&#10;../../../src/plugin&#10;../../../src/synthesis/synth_engine&#10;../../../src/synthesis/effects&#10;../../../src/synthesis/filters&#10;../../../src/synthesis/framework&#10;../../../src/synthesis/lookups&#10;../../../src/synthesis/modulators&#10;../../../src/synthesis/modules&#10;../../../src/synthesis/producers&#10;../../../src/synthesis/utilities&#10;../../../third_party&#10;../../../third_party/firebase_cpp_sdk/include"
+                       isDebug="0" optimisation="3" targetName="Quasar" headerPath="../../../src/common&#10;../../../src/common/wavetable&#10;../../../src/interface/editor_components&#10;../../../src/interface/editor_sections&#10;../../../src/interface/look_and_feel&#10;../../../src/interface/wavetable&#10;../../../src/interface/wavetable/editors&#10;../../../src/interface/wavetable/overlays&#10;../../../src/plugin&#10;../../../src/synthesis/synth_engine&#10;../../../src/synthesis/effects&#10;../../../src/synthesis/filters&#10;../../../src/synthesis/framework&#10;../../../src/synthesis/lookups&#10;../../../src/synthesis/modulators&#10;../../../src/synthesis/modules&#10;../../../src/synthesis/producers&#10;../../../src/synthesis/utilities&#10;../../../third_party&#10;../../../third_party/firebase_cpp_sdk/include"
                        linuxArchitecture="" defines="" linkTimeOptimisation="0"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

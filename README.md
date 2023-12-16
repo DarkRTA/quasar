@@ -1,4 +1,4 @@
-# Vanadium
+# Quasar
 
 This is a lightly modified fork of Matt Tytel's Vital.
 
