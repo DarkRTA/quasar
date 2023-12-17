@@ -46,7 +46,7 @@ AboutSection::AboutSection(const String& name) : Overlay(name), body_(Shaders::k
   version_text_->setFontType(PlainTextComponent::kLight);
   version_text_->setTextSize(12.0f);
 
-  fork_text_ = std::make_unique<PlainTextComponent>("About Fork", String("Original Vital Plugin by Matt Tytel\nQuasar fork by Dark"));
+  fork_text_ = std::make_unique<PlainTextComponent>("About Fork", String("Original Vital plugin by Matt Tytel\nQuasar fork by Dark"));
   addOpenGlComponent(fork_text_.get());
   fork_text_->setFontType(PlainTextComponent::kLight);
   fork_text_->setTextSize(14.0f);
