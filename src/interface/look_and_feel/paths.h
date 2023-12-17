@@ -21,7 +21,7 @@
 
 class Paths {
   public:
-    static constexpr int kLogoWidth = 467;
+    static constexpr int kLogoWidth = 64;
 
     Paths() = delete;
 

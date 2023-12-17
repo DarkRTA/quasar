@@ -18,7 +18,7 @@ namespace BinaryData
     const int            Pythagorean_sclSize = 108;
 
     extern const char*   default_vitalskin;
-    const int            default_vitalskinSize = 10485;
+    const int            default_vitalskinSize = 10739;
 
     extern const char*   DroidSansMono_ttf;
     const int            DroidSansMono_ttfSize = 119380;
@@ -78,10 +78,10 @@ namespace BinaryData
     const int            shuffle_svgSize = 382;
 
     extern const char*   vital_ring_svg;
-    const int            vital_ring_svgSize = 1051;
+    const int            vital_ring_svgSize = 1476;
 
     extern const char*   vital_v_svg;
-    const int            vital_v_svgSize = 540;
+    const int            vital_v_svgSize = 769;
 
     extern const char*   vital_word_svg;
     const int            vital_word_svgSize = 3979;
