@@ -810,8 +810,8 @@
   </MAINGROUP>
   <EXPORTFORMATS>
     <LINUX_MAKE targetFolder="builds/linux" vst3Folder="../third_party/VST3_SDK"
-                extraCompilerFlags="-ffast-math ${SIMDFLAGS} ${GLFLAGS} -ftree-vectorize -ftree-slp-vectorize -funroll-loops -fvisibility=hidden -fvisibility-inlines-hidden "
-                extraLinkerFlags="-ffast-math ${SIMDFLAGS} ${GLFLAGS} -ftree-vectorize -ftree-slp-vectorize -fvisibility=hidden -fvisibility-inlines-hidden"
+                extraCompilerFlags="-ffast-math ${SIMDFLAGS} ${GLFLAGS} -ftree-vectorize -ftree-slp-vectorize -funroll-loops -fvisibility=hidden -fvisibility-inlines-hidden -g"
+                extraLinkerFlags="-ffast-math ${SIMDFLAGS} ${GLFLAGS} -ftree-vectorize -ftree-slp-vectorize -fvisibility=hidden -fvisibility-inlines-hidden -g"
                 extraDefs="BUILD_DATE=$(BUILD_DATE)&#10;NO_AUTH=1&#10;_GLIBCXX_USE_CXX11_ABI=0&#10;JUCE_USE_XRANDR=0&#10;JUCE_OPENGL3=1&#10;JUCE_DSP_USE_SHARED_FFTW=1&#10;JUCE_VST3_CAN_REPLACE_VST2=0"
                 externalLibraries="firebase_auth&#10;firebase_app&#10;secret-1&#10;glib-2.0"
                 vstLegacyFolder="../third_party/VST_SDK/VST2_SDK">

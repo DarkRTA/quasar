@@ -24,7 +24,7 @@
 SynthEditor::SynthEditor(SynthPlugin& synth) :
     AudioProcessorEditor(&synth), SynthGuiInterface(&synth), synth_(synth), was_animating_(true) {
   static constexpr int kHeightBuffer = 50;
-  
+
   setLookAndFeel(DefaultLookAndFeel::instance());
 
   Authentication::create();
@@ -53,8 +53,21 @@ SynthEditor::SynthEditor(SynthPlugin& synth) :
 }
 
 void SynthEditor::resized() {
+  // XXX: hack to prevent ardour from fucking with our window
+  // this relies entirely on the fact that i made the plugin non-resizable
+  // TODO: properly fix this
+  auto bounds = getLocalBounds();
+  float window_size = LoadSave::loadWindowSize();
+
+  int width = std::round(window_size * vital::kDefaultWindowWidth);
+  int height = std::round(window_size * vital::kDefaultWindowHeight);
+
+  if (bounds.getWidth() != width || bounds.getHeight() != height) {
+    return;
+  }
+
   AudioProcessorEditor::resized();
-  gui_->setBounds(getLocalBounds());
+  gui_->setBounds(bounds);
 }
 
 void SynthEditor::setScaleFactor(float newScale) {
