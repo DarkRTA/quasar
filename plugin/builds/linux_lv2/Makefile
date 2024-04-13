@@ -13,7 +13,7 @@ ttl_generator:
 lv2: ttl_generator binary
 	./lv2_ttl_generator build/Quasar.so
 	mkdir -p Quasar.lv2
-	cp build/Quasar.so Vial.lv2
+	cp build/Quasar.so Quasar.lv2
 	mv *.ttl Quasar.lv2
 
 clean:
