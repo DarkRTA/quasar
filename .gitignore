@@ -32,6 +32,10 @@ build
 *.VST3
 *.vst3
 *.tar.gz
+.ninja_log
+build.ninja
+out/
+obj/
 Debug
 Profile
 Release
