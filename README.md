@@ -8,11 +8,11 @@ Assuming you already have every dependency installed (TODO: list these), run the
 following:
 
 ```
-make -C plugin/builds/linux CONFIG=Release -j12
+build-scripts/configure.py <vst3|lv2|standalone>
+ninja
 ```
 
-Build artifacts will be in `plugin/builds/linux/build`. The VST3 plugin will be
-automatically installed to `~/.vst3`.
+Build artifacts will be in `out/`.
 
 # Original Readme
 

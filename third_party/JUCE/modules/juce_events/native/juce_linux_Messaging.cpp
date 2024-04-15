@@ -109,6 +109,130 @@ private:
 JUCE_IMPLEMENT_SINGLETON (InternalMessageQueue)
 
 //==============================================================================
+#ifndef QUASAR_LV2
+struct InternalRunLoop
+{
+public:
+    InternalRunLoop()
+    {
+        fdReadCallbacks.reserve (16);
+    }
+
+
+    void registerFdCallback (int fd, std::function<void (int)>&& cb, short eventMask)
+    {
+        const ScopedLock sl (lock);
+
+        if (shouldDeferModifyingReadCallbacks)
+        {
+            deferredReadCallbackModifications.emplace_back ([this, fd, cb, eventMask]() mutable
+                                                            {
+                                                                registerFdCallback (fd, std::move (cb), eventMask);
+                                                            });
+            return;
+        }
+
+        fdReadCallbacks.push_back ({ fd, std::move (cb) });
+        pfds.push_back ({ fd, eventMask, 0 });
+    }
+
+    void unregisterFdCallback (int fd)
+    {
+        const ScopedLock sl (lock);
+
+        if (shouldDeferModifyingReadCallbacks)
+        {
+            deferredReadCallbackModifications.emplace_back ([this, fd] { unregisterFdCallback (fd); });
+            return;
+        }
+
+        {
+            auto removePredicate = [=] (const std::pair<int, std::function<void (int)>>& cb)  { return cb.first == fd; };
+
+            fdReadCallbacks.erase (std::remove_if (std::begin (fdReadCallbacks), std::end (fdReadCallbacks), removePredicate),
+                                   std::end (fdReadCallbacks));
+        }
+
+        {
+            auto removePredicate = [=] (const pollfd& pfd)  { return pfd.fd == fd; };
+
+            pfds.erase (std::remove_if (std::begin (pfds), std::end (pfds), removePredicate),
+                        std::end (pfds));
+        }
+    }
+
+    bool dispatchPendingEvents()
+    {
+        const ScopedLock sl (lock);
+
+        if (poll (&pfds.front(), static_cast<nfds_t> (pfds.size()), 0) == 0)
+            return false;
+
+        bool eventWasSent = false;
+
+        for (auto& pfd : pfds)
+        {
+            if (pfd.revents == 0)
+                continue;
+
+            pfd.revents = 0;
+
+            auto fd = pfd.fd;
+
+            for (auto& fdAndCallback : fdReadCallbacks)
+            {
+                if (fdAndCallback.first == fd)
+                {
+                    {
+                        ScopedValueSetter<bool> insideFdReadCallback (shouldDeferModifyingReadCallbacks, true);
+                        fdAndCallback.second (fd);
+                    }
+
+                    if (! deferredReadCallbackModifications.empty())
+                    {
+                        for (auto& deferredRegisterEvent : deferredReadCallbackModifications)
+                            deferredRegisterEvent();
+
+                        deferredReadCallbackModifications.clear();
+
+                        // elements may have been removed from the fdReadCallbacks/pfds array so we really need
+                        // to call poll again
+                        return true;
+                    }
+
+                    eventWasSent = true;
+                }
+            }
+        }
+
+        return eventWasSent;
+    }
+
+    void sleepUntilNextEvent (int timeoutMs)
+    {
+        poll (&pfds.front(), static_cast<nfds_t> (pfds.size()), timeoutMs);
+    }
+
+    std::vector<std::pair<int, std::function<void (int)>>> getFdReadCallbacks()
+    {
+        const ScopedLock sl (lock);
+        return fdReadCallbacks;
+    }
+
+    //==============================================================================
+    JUCE_DECLARE_SINGLETON (InternalRunLoop, false)
+
+private:
+    CriticalSection lock;
+
+    std::vector<std::pair<int, std::function<void (int)>>> fdReadCallbacks;
+    std::vector<pollfd> pfds;
+
+    bool shouldDeferModifyingReadCallbacks = false;
+    std::vector<std::function<void()>> deferredReadCallbackModifications;
+};
+
+#else
 struct InternalRunLoop
 {
 public:
@@ -244,6 +368,7 @@ private:
     std::vector<std::tuple<int, std::function<void (int)>, pollfd>> pendingAdditions;
     std::vector<int> pendingRemovals;
 };
+#endif
 
 JUCE_IMPLEMENT_SINGLETON (InternalRunLoop)
 
