@@ -47,9 +47,7 @@ files = [
 
 match args.format:
     case "lv2":
-        files.append(
-            "third_party/JUCE/modules/juce_audio_plugin_client/LV2/juce_LV2_Wrapper.cpp"
-        )
+        files.append("src/JuceLibraryCode/include_juce_audio_plugin_client_LV2.cpp")
     case "standalone":
         files.append(
             "src/JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp"
@@ -99,6 +97,7 @@ cflags = [
     "-funroll-loops",
     "-fvisibility=hidden",
     "-fvisibility-inlines-hidden",
+    "-g",
     "-fdiagnostics-color=always",
     "-std=c++14",
 ]
@@ -113,11 +112,8 @@ defines = [
     "-DJucePlugin_Build_AAX=0",
     "-DJucePlugin_Build_AU=0",
     "-DJucePlugin_Build_AUv3=0",
-    "-DJucePlugin_Build_LV2=1",
     "-DJucePlugin_Build_RTAS=0",
-    "-DJucePlugin_Build_Standalone=1",
-    "-DJucePlugin_Build_VST=1",
-    "-DJucePlugin_Build_VST3=1",
+    "-DJucePlugin_Build_VST=0",
     '-D JucePlugin_LV2Category=\\"InstrumentPlugin\\"',
     '-D JucePlugin_LV2URI=\\"http://git.thev0id.io/dark/Quasar\\"',
     "-D JucePlugin_WantsLV2Presets=1",
@@ -131,8 +127,19 @@ defines = [
     "-DNO_AUTH=1",
 ]
 
-if args.format == "lv2":
-    defines.append("-DQUASAR_LV2=1")
+match args.format:
+    case "lv2":
+        defines.append("-DJucePlugin_Build_LV2=1");
+        defines.append("-DJucePlugin_Build_VST3=0");
+        defines.append("-DJucePlugin_Build_Standalone=0");
+    case "vst3":
+        defines.append("-DJucePlugin_Build_LV2=0");
+        defines.append("-DJucePlugin_Build_VST3=1");
+        defines.append("-DJucePlugin_Build_Standalone=0");
+    case "standalone":
+        defines.append("-DJucePlugin_Build_LV2=0");
+        defines.append("-DJucePlugin_Build_VST3=0");
+        defines.append("-DJucePlugin_Build_Standalone=1");
 
 ninja.variable("iflags", " ".join(includes))
 
