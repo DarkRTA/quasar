@@ -12,9 +12,9 @@ parser = argparse.ArgumentParser(prog="configure")
 parser.add_argument("format")
 args = parser.parse_args()
 
-if not args.format in ["lv2", "vst3", "standalone"]:
+if not args.format in ["lv2", "vst3", "vst2", "standalone"]:
     print("invalid plugin format")
-    print('try, "lv2", "vst3", or "standalone"')
+    print('try, "lv2", "vst3", "vst2", or "standalone"')
     exit(1)
 
 ninja = ninja_syntax.Writer(open("build.ninja", "w+"))
@@ -54,6 +54,8 @@ match args.format:
         )
     case "vst3":
         files.append("src/JuceLibraryCode/include_juce_audio_plugin_client_VST3.cpp")
+    case "vst2":
+        files.append("src/JuceLibraryCode/include_juce_audio_plugin_client_VST2.cpp")
 
 includes = [
     "-I/usr/include/freetype2",
@@ -113,7 +115,6 @@ defines = [
     "-DJucePlugin_Build_AU=0",
     "-DJucePlugin_Build_AUv3=0",
     "-DJucePlugin_Build_RTAS=0",
-    "-DJucePlugin_Build_VST=0",
     '-D JucePlugin_LV2Category=\\"InstrumentPlugin\\"',
     '-D JucePlugin_LV2URI=\\"http://git.thev0id.io/dark/Quasar\\"',
     "-D JucePlugin_WantsLV2Presets=1",
@@ -132,14 +133,22 @@ match args.format:
         defines.append("-DJucePlugin_Build_LV2=1");
         defines.append("-DJucePlugin_Build_VST3=0");
         defines.append("-DJucePlugin_Build_Standalone=0");
+        defines.append("-DJucePlugin_Build_VST=0");
     case "vst3":
         defines.append("-DJucePlugin_Build_LV2=0");
         defines.append("-DJucePlugin_Build_VST3=1");
         defines.append("-DJucePlugin_Build_Standalone=0");
+        defines.append("-DJucePlugin_Build_VST=0");
+    case "vst2":
+        defines.append("-DJucePlugin_Build_LV2=0");
+        defines.append("-DJucePlugin_Build_VST3=0");
+        defines.append("-DJucePlugin_Build_Standalone=0");
+        defines.append("-DJucePlugin_Build_VST=1");
     case "standalone":
         defines.append("-DJucePlugin_Build_LV2=0");
         defines.append("-DJucePlugin_Build_VST3=0");
         defines.append("-DJucePlugin_Build_Standalone=1");
+        defines.append("-DJucePlugin_Build_VST=0");
 
 ninja.variable("iflags", " ".join(includes))
 
@@ -225,3 +234,5 @@ match args.format:
         ninja.build("out/Quasar", "ld", obj_files)
     case "vst3":
         ninja.build("out/Quasar.vst3/Contents/x86_64-linux/Quasar.so", "ld", obj_files)
+    case "vst2":
+        ninja.build("out/Quasar.vst2.so", "ld", obj_files)
