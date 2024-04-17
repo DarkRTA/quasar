@@ -59,11 +59,6 @@ match args.format:
 
 includes = [
     "-I/usr/include/freetype2",
-    "-I/usr/include/libpng16",
-    "-I/usr/include/harfbuzz",
-    "-I/usr/include/glib-2.0",
-    "-I/usr/lib/glib-2.0/include",
-    "-I/usr/include/sysprof-6",
     "-Ithird_party/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
     "-Ithird_party/VST_SDK/VST2_SDK",
     "-Isrc/JuceLibraryCode",
@@ -157,17 +152,14 @@ ninja.variable("cflags", " ".join(cflags))
 ninja.variable("defines", " ".join(defines))
 
 pkgconf_libs = subprocess.check_output(
-    ["pkg-config", "--libs", "alsa", "freetype2", "libcurl"]
+    ["pkg-config", "--libs", "alsa", "freetype2"]
 )
 
 ldflags = [
-    "-L/usr/X11R6/lib/",
     "-lrt",
     "-ldl",
     "-lpthread",
     "-lGL",
-    "-lsecret-1",
-    "-lglib-2.0",
     pkgconf_libs.decode("utf-8").rstrip("\n"),
 ]
 
