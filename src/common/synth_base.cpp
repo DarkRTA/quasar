@@ -211,7 +211,7 @@ void SynthBase::disconnectModulation(const std::string& source, const std::strin
 
 void SynthBase::clearModulations() {
   clearModulationQueue();
-  
+
   while (mod_connections_.size()) {
     vital::ModulationConnection* connection = *mod_connections_.begin();
     mod_connections_.remove(connection);
@@ -331,17 +331,36 @@ void SynthBase::loadTuningFile(const File& file) {
 
 void SynthBase::loadInitPreset() {
   pauseProcessing(true);
+  auto old = std::map<std::string, float>();
+  for (auto i = controls_.begin(); i != controls_.end(); i++) {
+    old.insert(std::pair<std::string, float>(i->first, i->second->value()));
+  }
   engine_->allSoundsOff();
   initEngine();
   LoadSave::initSaveInfo(save_info_);
+
+  for (auto i = controls_.begin(); i != controls_.end(); i++) {
+    if (old.count(i->first) && old[i->first] != i->second->value()) {
+      setValueNotifyHost(i->first, i->second->value());
+    }
+  }
   pauseProcessing(false);
 }
 
 bool SynthBase::loadFromJson(const json& data) {
   pauseProcessing(true);
+  auto old = std::map<std::string, float>();
+  for (auto i = controls_.begin(); i != controls_.end(); i++) {
+    old.insert(std::pair<std::string, float>(i->first, i->second->value()));
+  }
   engine_->allSoundsOff();
   try {
     bool result = LoadSave::jsonToState(this, save_info_, data);
+    for (auto i = controls_.begin(); i != controls_.end(); i++) {
+      if (old.count(i->first) && old[i->first] != i->second->value()) {
+        setValueNotifyHost(i->first, i->second->value());
+      }
+    }
     pauseProcessing(false);
     return result;
   }
@@ -354,7 +373,7 @@ bool SynthBase::loadFromJson(const json& data) {
 bool SynthBase::loadFromFile(File preset, std::string& error) {
   if (!preset.exists())
     return false;
-  
+
   try {
     json parsed_json_state = json::parse(preset.loadFileAsString().toStdString(), nullptr);
     if (!loadFromJson(parsed_json_state)) {
@@ -368,7 +387,7 @@ bool SynthBase::loadFromFile(File preset, std::string& error) {
     error = "Preset file is corrupted.";
     return false;
   }
-  
+
   setPresetName(preset.getFileNameWithoutExtension());
 
   SynthGuiInterface* gui_interface = getGuiInterface();
@@ -644,7 +663,7 @@ void SynthBase::updateMemoryOutput(int samples, const vital::poly_float* audio) 
 
   if (last_played && (last_played_note_ != last_played || num_pressed > last_num_pressed_)) {
     last_played_note_ = last_played;
-    
+
     vital::mono_float frequency = vital::utils::midiNoteToFrequency(last_played_note_);
     vital::mono_float period = engine_->getSampleRate() / frequency;
     int window_length = output_inc * vital::kOscilloscopeMemoryResolution;
