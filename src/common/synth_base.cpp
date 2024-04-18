@@ -340,7 +340,8 @@ void SynthBase::loadInitPreset() {
   LoadSave::initSaveInfo(save_info_);
 
   for (auto i = controls_.begin(); i != controls_.end(); i++) {
-    if (old.count(i->first) && old[i->first] != i->second->value()) {
+    if (old.count(i->first) && old[i->first] != i->second->value()
+        && i->first != "bypass") {
       setValueNotifyHost(i->first, i->second->value());
     }
   }
@@ -357,7 +358,8 @@ bool SynthBase::loadFromJson(const json& data) {
   try {
     bool result = LoadSave::jsonToState(this, save_info_, data);
     for (auto i = controls_.begin(); i != controls_.end(); i++) {
-      if (old.count(i->first) && old[i->first] != i->second->value()) {
+      if (old.count(i->first) && old[i->first] != i->second->value()
+          && i->first != "bypass") {
         setValueNotifyHost(i->first, i->second->value());
       }
     }
