@@ -44,13 +44,13 @@
  #define JucePlugin_Desc                   ""
 #endif
 #ifndef  JucePlugin_Manufacturer
- #define JucePlugin_Manufacturer           "the v0id"
+ #define JucePlugin_Manufacturer           "Dark"
 #endif
 #ifndef  JucePlugin_ManufacturerWebsite
- #define JucePlugin_ManufacturerWebsite    "thev0id.io"
+ #define JucePlugin_ManufacturerWebsite    "dark.ski"
 #endif
 #ifndef  JucePlugin_ManufacturerEmail
- #define JucePlugin_ManufacturerEmail      "dark@thev0id.io"
+ #define JucePlugin_ManufacturerEmail      "dark at dark ski"
 #endif
 #ifndef  JucePlugin_ManufacturerCode
  #define JucePlugin_ManufacturerCode       0x4f70656e
@@ -149,7 +149,7 @@
  #define JucePlugin_IAASubType             JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_IAAName
- #define JucePlugin_IAAName                "the v0id: Quasar"
+ #define JucePlugin_IAAName                "Dark: Quasar"
 #endif
 #ifndef  JucePlugin_VSTNumMidiInputs
  #define JucePlugin_VSTNumMidiInputs       16
