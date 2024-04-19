@@ -16,3 +16,9 @@ Build artifacts will be in `out/`.
 
 Quasar is licensed under the terms of the GNU GPLv3. See LICENSE.md for more
 details.
+
+## Special Thanks
+
+* Matt Tytel for bringing us this awesome synthesizer in the first place.
+
+* falkTX for the fork of JUCE this project uses.
