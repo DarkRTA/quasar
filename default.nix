@@ -21,13 +21,16 @@
         mkdir -p $out/lib/lv2
 
         cp out/Quasar $out/bin
-        cp out/Quasar.lv2 $out/lib/lv2
+        cp -r out/Quasar.lv2 $out/lib/lv2
     '';
 
-    buildInputs = with pkgs; [
+    nativeBuildInputs = with pkgs; [
         ninja
         python3
         pkg-config
+    ];
+
+    buildInputs = with pkgs; [
         freetype
         alsa-lib
         libGL
